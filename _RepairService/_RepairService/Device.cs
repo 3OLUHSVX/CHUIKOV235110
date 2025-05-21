@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 namespace _RepairService
 
 {
-    public class Device
+    public class Device : 
+        IComparable<Device>
     {
         public string Name { get; }
         public string Manufacturer { get; }
@@ -30,6 +31,29 @@ namespace _RepairService
             SerialNumber = serialNumber;
         }
 
+        public int CompareTo(Device other)
+        {
+            if (other == null) return 1;
+
+            string GetLastName(string fullName) =>
+                fullName?.Split(' ')[0] ?? "";
+
+            int lastNameCompare = string.Compare(
+                GetLastName(this.TechnicianFullName),
+                GetLastName(other.TechnicianFullName),
+                StringComparison.Ordinal
+            );
+
+            if (lastNameCompare != 0)
+                return lastNameCompare;
+
+            return string.Compare(
+                this.Name,
+                other.Name,
+                StringComparison.Ordinal
+            );
+        }
+
         public virtual string[] GetInfo()
         {
             return new string[]
@@ -38,5 +62,6 @@ namespace _RepairService
                 $"Тип: {RepairType}, Неисправность: {FaultDescription}, Стоимость: {RepairCost:C}, Мастер: {TechnicianFullName}"
             };
         }
+        
     }
 }
