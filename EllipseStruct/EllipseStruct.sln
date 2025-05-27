@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EllipseStruct", "EllipseStruct\EllipseStruct.csproj", "{16CAC5D2-6F19-4F0C-9548-B76E614D42E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EllipseStruct.UnitTests", "EllipseStruct.UnitTests\EllipseStruct.UnitTests.csproj", "{4E318AF3-6347-4759-8D25-63DF383E0634}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{16CAC5D2-6F19-4F0C-9548-B76E614D42E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16CAC5D2-6F19-4F0C-9548-B76E614D42E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16CAC5D2-6F19-4F0C-9548-B76E614D42E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16CAC5D2-6F19-4F0C-9548-B76E614D42E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E318AF3-6347-4759-8D25-63DF383E0634}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E318AF3-6347-4759-8D25-63DF383E0634}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E318AF3-6347-4759-8D25-63DF383E0634}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E318AF3-6347-4759-8D25-63DF383E0634}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7CD687DC-653F-447D-A965-23C65E58F529}
+	EndGlobalSection
+EndGlobal
