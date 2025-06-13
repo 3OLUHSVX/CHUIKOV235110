@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Apartment.cs" />
+    <Compile Include="Building.cs" />
     <Compile Include="CentralHeatingApartment.cs" />
     <Compile Include="ElectricMeterType.cs" />
     <Compile Include="GasHeatingApartment.cs" />

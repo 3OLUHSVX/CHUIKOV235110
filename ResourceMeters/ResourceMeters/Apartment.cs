@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ResourceMeters
 {
-    public class Apartment
+    public class Apartment : IComparable<Apartment>
     {
         public int Number { get; }
         public string Owner { get; set; } = "Не указан";
@@ -42,6 +42,12 @@ namespace ResourceMeters
                 $"ХВС: {Format(ColdWater)}, ГВС: {Format(HotWater)}",
                 $"Электричество ({MeterType}): {string.Join(" / ", ElectricityReadings.Select(Format))}"
             };
+        }
+
+        public int CompareTo(Apartment other)
+        {
+            if (other == null) return 1;
+            return Number.CompareTo(other.Number);
         }
     }
 }

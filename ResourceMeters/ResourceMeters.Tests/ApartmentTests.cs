@@ -60,5 +60,39 @@ namespace ResourceMeters.Tests
             Assert.That(aptDouble.ElectricityReadings, Is.Not.Null);
             Assert.That(aptDouble.ElectricityReadings.Length, Is.EqualTo(2));
         }
+
+        [Test]
+        public void CompareTo_ApartmentWithLowerNumber_ReturnsPositive()
+        {
+            var apt1 = new Apartment(101, ElectricMeterType.SingleRate);
+            var apt2 = new Apartment(50, ElectricMeterType.DoubleRate);
+
+            Assert.That(apt1.CompareTo(apt2), Is.GreaterThan(0));
+        }
+
+        [Test]
+        public void CompareTo_ApartmentWithSameNumber_ReturnsZero()
+        {
+            var apt1 = new Apartment(101, ElectricMeterType.SingleRate);
+            var apt2 = new Apartment(101, ElectricMeterType.DoubleRate);
+
+            Assert.That(apt1.CompareTo(apt2), Is.EqualTo(0));
+        }
+
+        [Test]
+        public void CompareTo_ApartmentWithHigherNumber_ReturnsNegative()
+        {
+            var apt1 = new Apartment(50, ElectricMeterType.SingleRate);
+            var apt2 = new Apartment(101, ElectricMeterType.DoubleRate);
+
+            Assert.That(apt1.CompareTo(apt2), Is.LessThan(0));
+        }
+
+        [Test]
+        public void CompareTo_WithNull_ReturnsPositive()
+        {
+            var apt1 = new Apartment(50, ElectricMeterType.SingleRate);
+            Assert.That(apt1.CompareTo(null), Is.GreaterThan(0));
+        }
     }
 }
