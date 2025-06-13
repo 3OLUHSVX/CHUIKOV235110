@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 namespace ResourceMeters
 {
     public class Apartment
-    {     
-        public int Number { get; } 
+    {
+        public int Number { get; }
         public string Owner { get; set; } = "Не указан";
         public string Phone { get; set; } = "Не указан";
         public double ColdWater { get; set; }
         public double HotWater { get; set; }
-        public ElectricMeterType MeterType { get; } 
-        public double[] ElectricityReadings { get; private set; }
+        public ElectricMeterType MeterType { get; }
+        public double[] ElectricityReadings { get; set; }
 
         public Apartment(int number, ElectricMeterType meterType)
         {
@@ -30,17 +30,17 @@ namespace ResourceMeters
                 : new double[2];
         }
 
-        public string[] GetInfo()
+        public virtual string[] GetInfo()
         {
             string Format(double value) => value.ToString("0.0##", CultureInfo.InvariantCulture);
 
             return new string[]
             {
-        $"Квартира #{Number}",
-        $"Собственник: {Owner}",
-        $"Телефон: {Phone}",
-        $"ХВС: {Format(ColdWater)}, ГВС: {Format(HotWater)}",
-        $"Электричество ({MeterType}): {string.Join(" / ", ElectricityReadings.Select(Format))}"
+                $"Квартира #{Number}",
+                $"Собственник: {Owner}",
+                $"Телефон: {Phone}",
+                $"ХВС: {Format(ColdWater)}, ГВС: {Format(HotWater)}",
+                $"Электричество ({MeterType}): {string.Join(" / ", ElectricityReadings.Select(Format))}"
             };
         }
     }

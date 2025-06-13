@@ -42,7 +42,23 @@ namespace ResourceMeters.Tests
 
             var info = apt.GetInfo();
 
-            Assert.That(info[4], Is.EqualTo("Электричество (SingleRate): 150.7"));
+            Assert.AreEqual(5, info.Length);
+            Assert.AreEqual("Квартира #25", info[0]);
+            Assert.AreEqual("Собственник: Петров П.П.", info[1]);
+            Assert.AreEqual("Электричество (SingleRate): 150.7", info[4]);
+        }
+
+        [Test]
+        public void Constructor_InitializesElectricityArray()
+        {
+            var aptSingle = new Apartment(101, ElectricMeterType.SingleRate);
+            var aptDouble = new Apartment(102, ElectricMeterType.DoubleRate);
+
+            Assert.That(aptSingle.ElectricityReadings, Is.Not.Null);
+            Assert.That(aptSingle.ElectricityReadings.Length, Is.EqualTo(1));
+
+            Assert.That(aptDouble.ElectricityReadings, Is.Not.Null);
+            Assert.That(aptDouble.ElectricityReadings.Length, Is.EqualTo(2));
         }
     }
 }
